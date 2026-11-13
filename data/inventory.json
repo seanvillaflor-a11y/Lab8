@@ -1,0 +1,34 @@
+[
+    {
+        "id": "P001",
+        "name": "Laptop",
+        "price": 1200.0,
+        "stock": 15,
+        "type": "physical",
+        "weight": 2.1
+    },
+    {
+        "id": "P002",
+        "name": "Mouse",
+        "price": 25.5,
+        "stock": 40,
+        "type": "physical",
+        "weight": 0.1
+    },
+    {
+        "id": "P003",
+        "name": "Antivirus License",
+        "price": 45.0,
+        "stock": 25,
+        "type": "digital",
+        "download_size": 350.0
+    },
+    {
+        "id": "p062",
+        "name": "lebron",
+        "price": 67.0,
+        "stock": 67,
+        "type": "digital",
+        "download_size": 23.5
+    }
+]
