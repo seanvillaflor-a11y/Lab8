@@ -1,5 +1,6 @@
 from product import Product
 from supplier import Supplier
+"""association supplier import"""
 
 
 class DigitalProduct(Product):

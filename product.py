@@ -14,7 +14,11 @@ class Product(ABC):
     A Product is associated with a Supplier (association, not aggregation):
     the Supplier is created independently and passed in. The Product keeps a
     reference so it can ask the Supplier for its information, but it does not
-    own the Supplier -- both can exist independently.
+    own the Supplier -- both can exist independently. 
+
+    product asks info from supplier but supplier is independent of product. 
+    An association is also so that both classes are loose coupled/no dependence 
+    on each other
     """
 
     def __init__(self, product_id: str, name: str, price: float,
