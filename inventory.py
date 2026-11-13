@@ -1,5 +1,6 @@
 from product import Product
 from product_factory import product_from_dict
+from supplier import Supplier
 
 
 class Inventory:
@@ -85,9 +86,18 @@ class Inventory:
         """Return the products as a list of dictionaries (for saving)."""
         return [product.to_dict() for product in self.__products]
 
-    def load_from_list(self, data: list[dict]) -> None:
-        """Rebuild the inventory from a list of saved dictionaries."""
+    def load_from_list(self, data: list[dict],
+                       suppliers: dict[str, "Supplier"]) -> None:
+        """Rebuild the inventory from saved product dictionaries.
+
+        Each product record carries a supplier_id; the matching Supplier is
+        looked up in the supplied registry so the association is restored.
+        """
         if not isinstance(data, list):
             raise ValueError("inventory data must be a list")
         for item in data:
-            self.add_product(product_from_dict(item))
+            supplier = suppliers.get(item.get("supplier_id"))
+            if supplier is None:
+                raise ValueError(
+                    "unknown supplier_id for product " + str(item.get("id")))
+            self.add_product(product_from_dict(item, supplier))
